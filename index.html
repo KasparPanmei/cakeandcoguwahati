@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cake and Co | Guwahati's Finest Bakes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="//code.tidio.co/fx2tzx73whmitkb1hyra0ng8tfeft0ws.js" async></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <a href="index.html" class="logo">Cake & Co Guwahati</a>
+        <div class="nav-menu">
+          <ul class="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+          </ul>
+          <button id="theme-toggle" class="theme-btn">🌙</button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero section" id="home">
+        <div class="video">
+          <video src="./images/heroBG.mp4" autoplay muted loop></video>
+        </div>
+        <div class="hero-container container">
+          <div class="hero-data">
+            <h1 class="hero-title">
+              Handcrafted Joy <br />
+              in Guwahati
+            </h1>
+            <p class="hero-description">
+              From classic Truffle to custom 3D designs, we bake stories into
+              every bite.
+            </p>
+            <a href="#menu" class="button">Explore Treats</a>
+          </div>
+        </div>
+      </section>
+      <section class="menu section container" id="menu">
+        <h2 class="section-title">Our Menu</h2>
+
+        <div class="menu-grid" id="menu-grid">
+          <div class="menu-card">
+            <div class="card-img"><img src="./images/1200s-Chocolate-truffle-cake-2.jpg" alt="Truffle"></div>
+            <h3>Choco Truffle</h3>
+            <p>Rich ganache & moist sponge.</p>
+            <span class="price">₹750 / 500g</span>
+          </div>
+          <div class="menu-card">
+            <div class="card-img"><img src="./images/RED-VELVET-CAKE-23-S-01.jpg" alt="RED VELVET"></div>
+            <h3>Red Velvet</h3>
+            <p>Classic cream cheese frosting.</p>
+            <span class="price">₹800 / 500g</span>
+          </div>
+          <div class="menu-card">
+            <div class="card-img"><img src="./images/strawberry.webp" alt="Strawberry Rose"></div>
+            <h3>Strawberry Rose</h3>
+            <p>Fresh berries & floral notes.</p>
+            <span class="price">₹700 / 500g</span>
+          </div>
+
+          <div class="menu-card hidden-item">
+            <div class="card-img"><img src="./images/ferroro_rocher.webp" alt="Ferrero Rocher"></div>
+            <h3>Ferrero Rocher</h3>
+            <p>Hazelnut praline excellence.</p>
+            <span class="price">₹950 / 500g</span>
+          </div>
+          <div class="menu-card hidden-item">
+            <div class="card-img"><img src="./images/rasmalaiBliss.webp" alt="Rasmalai Bliss"></div>
+            <h3>Rasmalai Bliss</h3>
+            <p>Guwahati's fusion favorite.</p>
+            <span class="price">₹850 / 500g</span>
+          </div>
+          <div class="menu-card hidden-item">
+            <div class="card-img"><img src="./images/Pineapple.jpg" alt="Pineapple Fresh"></div>
+            <h3>Pineapple Fresh</h3>
+            <p>Classic whipped cream & fruit.</p>
+            <span class="price">₹600 / 500g</span>
+          </div>
+        </div>
+
+        <div class="load-more-container">
+          <button id="load-more-btn" class="button secondary-btn">
+            Load More Delights
+          </button>
+        </div>
+      </section>
+      <section class="order section container" id="order-form">
+        <h2 class="section-title">Place Your Order</h2>
+        <div class="order-container">
+          <form id="cake-order-form" class="order-form">
+            <div class="form-group">
+              <input
+                type="text"
+                id="cust-name"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="tel"
+                id="cust-phone"
+                placeholder="Phone Number"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <select id="cake-flavor" required>
+                <option value="" disabled selected>Select Flavor</option>
+                <option value="Choco Truffle">Choco Truffle</option>
+                <option value="Rasmalai Bliss">Rasmalai Bliss</option>
+                <option value="Red Velvet">Red Velvet</option>
+                <option value="Custom Design">
+                  Custom Design (Explain below)
+                </option>
+              </select>
+              <select id="cake-weight" required>
+                <option value="500g">500g</option>
+                <option value="1kg">1kg</option>
+                <option value="2kg+">2kg+</option>
+              </select>
+            </div>
+
+            <input
+              type="text"
+              id="delivery-loc"
+              placeholder="Delivery Area (e.g., Zoo Road, Beltola)"
+              required
+            />
+            <textarea
+              id="special-msg"
+              rows="4"
+              placeholder="Message on Cake / Special Instructions"
+            ></textarea>
+
+            <button type="submit" class="button order-btn">
+              Confirm Order
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer section" id="contact">
+      <div class="footer-container container">
+        <p>📍 Guwahati, Assam</p>
+        <div class="booking-links">
+          <p>&copy; 2023 Cake & Co. All rights reserved. Artisanal cakes & cozy vibes ✨</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

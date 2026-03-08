@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Received | Cake & Co.</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .success-page {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: var(--body-color);
+      }
+      .container
+      {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .container .link
+      {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: 100%;
+        max-width: 400px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success-page container">
+      <h1>Almost There!</h1>
+      <p>Choose your preferred way to send the order to our kitchen:</p>
+
+      <div class="link">
+            <a
+            id="whatsapp-link"
+            href="#"
+            class="button wa-btn"
+            style="background-color: #25d366; width: 100%;">
+            Send via WhatsApp
+            </a>
+            <a
+                id="instagram-link"
+                href="#"
+                target="_blank"
+                class="button ig-btn"
+                style="
+                background: linear-gradient(
+                    45deg,
+                    #f09433,
+                    #e6683c,
+                    #dc2743,
+                    #cc2366,
+                    #bc1888
+                );
+                width: 100%;
+                ">
+                Send via Instagram DM
+            </a>
+    </div>
+
+      <button
+        id="copy-btn"
+        class="button secondary-btn"
+        style="margin-top: 1rem; font-size: 0.8rem"
+      >
+        Copy Order Summary (to paste in Instagram)
+      </button>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const orderData = JSON.parse(sessionStorage.getItem("pendingOrder"));
+      if (!orderData) return;
+
+      const myWANumber = "+91-7099553105"; //  REPLACE WITH YOUR ACTUAL WHATSAPP NUMBER
+      const myIGUsername =
+        "cakeandcoguwahati"; // REPLACE WITH YOUR ACTUAL IG USERNAME
+
+      // 1. Prepare the raw text for WhatsApp and Clipboard
+      const rawMessage =
+        `*Cake & Co. Order Details* \n` +
+        `--------------------------\n` +
+        `Name: ${orderData.name}\n` +
+        `Flavor: ${orderData.flavor}\n` +
+        `Weight: ${orderData.weight}\n` +
+        `Location: ${orderData.location}\n` +
+        `Notes: ${orderData.msg}`;
+
+      // 2. Set WhatsApp Link (Encodes full message)
+      const waUrl = `https://api.whatsapp.com/send?phone=${myWANumber}&text=${encodeURIComponent(rawMessage)}`;
+      document.getElementById("whatsapp-link").href = waUrl;
+
+      // 3. Set Instagram DM Link (Opens your specific chat)
+      // This link triggers the "Direct Message" screen in the IG App
+      const igUrl = `https://ig.me/m/${myIGUsername}`;
+      document.getElementById("instagram-link").href = igUrl;
+
+      // 4. Copy to Clipboard Feature
+      document.getElementById("copy-btn").addEventListener("click", () => {
+        navigator.clipboard.writeText(rawMessage).then(() => {
+          alert("Order summary copied! Now paste it in your Instagram DM.");
+        });
+      });
+    });
+  </script>
+</html>
